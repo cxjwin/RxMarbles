@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Growing.start(withAccountId: "b685de56b4394b8f")
+        Growing.setEnableLog(true)
+        
         Fabric.with([Crashlytics.self])
         
         window = UIWindow()
