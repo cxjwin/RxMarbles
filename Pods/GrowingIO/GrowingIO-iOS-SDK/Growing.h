@@ -112,6 +112,15 @@ typedef NS_ENUM(NSInteger, GrowingAspectMode)
 // 设置数据查看平台服务器地址
 + (void)setDataHost:(NSString*)host;
 
+// 设置数据后台服务器地址
++ (void)setGtaHost:(NSString*)host;
+
+// 设置数据后台服务器地址
++ (void)setWsHost:(NSString*)host;
+
+// 设置数据后台服务器地址
++ (void)setHybridJSSDKUrlPrefix:(NSString*)urlPrefix;
+
 // 设置zone信息
 + (void)setZone:(NSString *)zone;
 
@@ -119,31 +128,123 @@ typedef NS_ENUM(NSInteger, GrowingAspectMode)
 + (NSString *)getDeviceId;
 + (NSString *)getSessionId;
 
-// 埋点相关，请在主线程里调用
-// 参数userId不允许传空或者nil,如有此操作请调用clearUserId函数
+
+
+/// !!!: V2.0埋点相关API，请在主线程里调用.
+/**
+ 设置登录用户ID
+ 
+ @param userId 登陆用户ID, ID为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
+ ！！！不允许传空或者nil, 如有此操作请调用clearUserId函数
+ */
 + (void)setUserId:(NSString *)userId;
+/**
+ 清除登录用户ID
+ */
 + (void)clearUserId;
-+ (void)setSubPageName:(NSString *)subPageName
-      toViewController:(UIViewController *)viewController;
+
+/**
+ 设置页面级变量
+
+ @param variable ：页面级变量, 变量不能为nil
+ @param viewController ： 目标 UIViewController
+ */
 + (void)setPageVariable:(NSDictionary<NSString *, NSObject *> *)variable
        toViewController:(UIViewController *)viewController;
+/**
+ 页面级变量
+ 
+ @param key : 变量名称, 变量名称不能为nil或者""
+ @param stringValue : 字符串变量, 变量不能为nil或者""
+ @param viewController : 目标 UIViewController
+ */
 + (void)setPageVariableWithKey:(NSString *)key
                 andStringValue:(NSString *)stringValue
               toViewController:(UIViewController *)viewController;
+/**
+ 页面级变量
+ 
+ @param key : 变量名称, 变量名称不能为nil或者""
+ @param numberValue : 数值类型变量, 变量不能为nil
+ @param viewController : 目标 UIViewController
+ */
 + (void)setPageVariableWithKey:(NSString *)key
                 andNumberValue:(NSNumber *)numberValue
               toViewController:(UIViewController *)viewController;
-+ (void)setAppVariable:(NSDictionary<NSString *, NSObject *> *)variable;
-+ (void)setAppVariableWithKey:(NSString *)key andStringValue:(NSString *)stringValue;
-+ (void)setAppVariableWithKey:(NSString *)key andNumberValue:(NSNumber *)numberValue;
+/**
+ 转化变量
+ 
+ @param variable : 转化变量, 变量不能为nil
+ */
 + (void)setEvar:(NSDictionary<NSString *, NSObject *> *)variable;
+/**
+ 转化变量 API
+ 
+ @param key : 变量名称, 变量名称不能为nil或者""
+ @param stringValue : 字符串变量, 变量不为nil或者""
+ */
 + (void)setEvarWithKey:(NSString *)key andStringValue:(NSString *)stringValue;
+/**
+ 转化变量
+ 
+ @param key : 变量名称, 变量名称不能为nil或者""
+ @param numberValue : 数值类型变量, 变量不能为nil
+ */
 + (void)setEvarWithKey:(NSString *)key andNumberValue:(NSNumber *)numberValue;
+
+/**
+ 用户变量
+ 
+ @param variable : 用户变量, 变量不能为nil
+ */
 + (void)setPeopleVariable:(NSDictionary<NSString *, NSObject *> *)variable;
+/**
+ 用户变量
+ 
+ @param key : 变量名称, 变量名称不能为nil或者""
+ @param stringValue : 字符串变量, 变量不能为nil或者""
+ */
 + (void)setPeopleVariableWithKey:(NSString *)key andStringValue:(NSString *)stringValue;
+/**
+ 用户变量
+ 
+ @param key : 变量名称, 变量名称不能为nil或者""
+ @param numberValue : 数值类型变量, 变量不能为nil
+ */
 + (void)setPeopleVariableWithKey:(NSString *)key andNumberValue:(NSNumber *)numberValue;
-+ (void)track:(NSString *)eventName withNumber:(NSNumber *)number andVariable:(NSDictionary<NSString *, NSObject *> *)variable;
-+ (void)track:(NSString *)eventName withVariable:(NSDictionary<NSString *, NSObject *> *)variable;
+
+/**
+ 发送事件 API, number默认为1
+ 
+ @param eventId : 事件Id, Id为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
+ */
++ (void)track:(NSString *)eventId;
+
+/**
+ 发送事件 API
+ 
+ @param eventId : 事件Id, Id为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
+ @param number : 数值类型变量, number为正的整数或者浮点数
+ */
++ (void)track:(NSString *)eventId withNumber:(NSNumber *)number;
+
+/**
+ 发送事件 API
+ 
+ @param eventId : 事件Id, Id为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
+ @param number : 数值类型变量, number为正的整数或者浮点数
+ @param variable : 事件变量, 变量不能为nil
+ */
++ (void)track:(NSString *)eventId withNumber:(NSNumber *)number andVariable:(NSDictionary<NSString *, id> *)variable;
+
+/**
+ 发送事件 API
+ 
+ @param eventId 事件Id, Id为正常英文数字组合的字符串, 长度<=1000, 请不要含有 "'|\*&$@/', 等特殊字符
+ @param variable : 事件变量, 变量不能为nil
+ */
++ (void)track:(NSString *)eventId withVariable:(NSDictionary<NSString *, id> *)variable;
+
 
 //下面这个方法请客户不要调用
 + (void)trackPageWithPageName:(NSString *)pageName pageTime:(NSString *)pageTime;
@@ -177,7 +278,6 @@ typedef NS_ENUM(NSInteger, GrowingAspectMode)
 @property (nonatomic, copy)   NSString* growingAttributesUniqueTag;
 
 @end
-
 
 // 该属性setter方法均使用 objc_setAssociatedObject实现
 // 如果是自定义的UIViewController不要使用重写getter方法来实现,因为SDK在set方法内部有逻辑处理

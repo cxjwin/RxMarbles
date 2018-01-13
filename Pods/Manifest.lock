@@ -3,19 +3,19 @@ PODS:
     - Fabric (~> 1.7.2)
   - Device (3.0.3)
   - Fabric (1.7.2)
-  - GrowingIO (2.1-beta1):
-    - GrowingIO/Core (= 2.1-beta1)
-  - GrowingIO/Core (2.1-beta1)
+  - GrowingIO (2.1-beta2):
+    - GrowingIO/Core (= 2.1-beta2)
+  - GrowingIO/Core (2.1-beta2)
   - RazzleDazzle (0.2.0)
-  - RxCocoa (4.0.0):
+  - RxCocoa (4.1.1):
     - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
+  - RxSwift (4.1.1)
 
 DEPENDENCIES:
   - Crashlytics
   - Device
   - Fabric
-  - GrowingIO (~> 2.1-beta1)
+  - GrowingIO (~> 2.1-beta2)
   - RazzleDazzle (from `https://github.com/carlosypunto/RazzleDazzle.git`, tag `0.2.0`)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -34,11 +34,11 @@ SPEC CHECKSUMS:
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Device: 9a5264ee4e0f392e7153d2c46b10c8df46b7aad2
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
-  GrowingIO: 05c23dfcf663fb262ac5f1afa2299b2adb8f49ff
+  GrowingIO: 974a64f815cc2af88225316e88f1464923a70b21
   RazzleDazzle: 6ab76b0790cafc13e3acee9ef7c863bd63f472a4
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+  RxCocoa: fd0862fd2df95fa55562ad28ffd2522c25eb4a85
+  RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
 
-PODFILE CHECKSUM: 5d7d23f1994cb71a8c5fb688dc81914acff276bc
+PODFILE CHECKSUM: 8285ac6ca22a68a98aba78617bc9f1062945fe03
 
 COCOAPODS: 1.3.1

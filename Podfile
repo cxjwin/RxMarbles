@@ -11,7 +11,7 @@ pod 'Device'
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'RazzleDazzle', :git => 'https://github.com/carlosypunto/RazzleDazzle.git', :tag => '0.2.0'
-pod 'GrowingIO',  '~> 2.1-beta1'
+pod 'GrowingIO',  '~> 2.1-beta2'
 
 end
 

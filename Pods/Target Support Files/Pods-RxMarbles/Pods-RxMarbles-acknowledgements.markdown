@@ -37,7 +37,7 @@ Fabric: Copyright 2017 Google, Inc. All Rights Reserved. Use of this software is
 
 ## GrowingIO
 
-Copyright (c) 2016 Hao Che <chehao@growingio.com>
+Copyright (c) 2015-2017 GrowingIO <support@growingio.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
